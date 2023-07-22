@@ -3,7 +3,7 @@
  This recreation is now made with raspberry pi 4 
 
 
-This is the hardware setup:
+This is the hardware setup:\n
 2 servos (Waveshare MG996R servo)
 camera (Raspberry Pi kamera V2)
 laser module (KY-008)
