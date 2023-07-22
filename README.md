@@ -1,11 +1,11 @@
 # Face-targeting-laser-turret
- This is recreation of my old project that used raspberry pi 0 to detect faces trought small camera and directed servos to aim laser at that face.
+ This is a recreation of my old project that used raspberry pi 0 to detect faces through a small camera and directed servos to aim a laser at that face.
  This recreation is now made with raspberry pi 4 
 
 
-This is the hardware setup:\n
+This is the hardware setup:
 2 servos (Waveshare MG996R servo)
-camera (Raspberry Pi kamera V2)
+camera (Raspberry Pi Camera V2)
 laser module (KY-008)
 buzzer (FC-07)
 ![20230720_230509](https://github.com/aizej/Face-targeting-laser-turret/assets/61479273/fb9b24dd-068c-4ebf-9de9-db6f57d319f7)
