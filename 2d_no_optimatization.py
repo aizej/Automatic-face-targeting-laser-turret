@@ -63,7 +63,7 @@ currently_used_frame_x = cam_width
 currently_used_frame_y = cam_height
 
 servo_arm_1_start_position_to_camera = [0,0,9]#x,y,z
-servo_arm_1_start_angle_to_camera = [2.5,-25] #x,z
+servo_arm_1_start_angle_to_camera = [3.5,-48] #x,z
 
 horizontal_angle_of_camera = 62.2
 vertical_angle_of_camera = 48.8
@@ -117,7 +117,7 @@ def calculate_angle_2D(x_value,y_value):
     angle_at_zero_x = 90 + cam_horizontal_angle/2 #plus protože servo se točí od prava do leva, pravo=0 stupnu
     angle_at_zero_y = 90 + cam_vertical_angle/2
     x_angle = angle_at_zero_x - x_value*cam_horizontal_angle
-    y_angle = angle_at_zero_y - y_value*cam_vertical_angle
+    y_angle = angle_at_zero_y + y_value*cam_vertical_angle
     x_angle += servo_arm_1_start_angle_to_camera[0]
     y_angle += servo_arm_1_start_angle_to_camera[1]
     return [x_angle,y_angle]
@@ -142,13 +142,12 @@ def test_servo():
 
 
 
-
-test_servo()
 laser.on()
+test_servo()
 play_tone_nice(buzzer)
 
 
-for i in range(1000):
+for i in range(100):
     # Capture frame-by-frame
     start_frame_time = time.time()
 
@@ -182,8 +181,8 @@ for i in range(1000):
         face_center_y_to_frame = (obj[0][1][1]+(face_y_size_in_pixels/2))/currently_used_frame_y #[sx,sy,ex,ey] střed = [sx+ex/2,-sy+ey/2]
         face_angles = calculate_angle_2D(face_center_x_to_frame,face_center_y_to_frame)
         get_to_pos(face_angles[0],face_angles[1])
-        buzzer_nice = threading.Thread(target=play_tone_nice,args=(buzzer,),daemon=True)
-        buzzer_nice.start()
+        #buzzer_nice = threading.Thread(target=play_tone_nice,args=(buzzer,),daemon=True)
+        #-buzzer_nice.start()
         #print(face_center_x,face_center_y)
     
 
@@ -193,7 +192,7 @@ for i in range(1000):
     #print("there are ",len(obj)," faces")
     #print("getting image: ",end_frame-start_frame_time)
     #print("face detection:",end_detection-start_detection_time)
-    #print("zapis: ",end_write-start_write_time)
+    #print("zapis: ",end_write-start_servo_time)
     print("čas_za_frame: ", end_write-start_frame_time)
     #print(time.time()-end_write)
 
