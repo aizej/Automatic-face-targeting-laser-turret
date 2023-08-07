@@ -1,4 +1,4 @@
-# Face-targeting-laser-turret
+# Automatic-face-targeting-laser-turret
  This is a recreation of my old project that used raspberry pi 0 to detect faces through a small camera and directed servos to aim a laser at that face.
  This recreation is now made with raspberry pi 4 
 
